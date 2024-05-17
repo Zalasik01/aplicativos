@@ -1,0 +1,59 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Importar Planilha Excel</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="planilhas-do-google.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="dropdown" style="background: transparent; border: none;">
+                    <button class="dropbtn">Aplicativos</button>
+                    <div class="dropdown-content">
+                        <button class="navbtn"><a href="/index.html">Home - Inicio</a></button>
+                        <button class="navbtn"><a href="/Imagem/index.html">Converter Imagem</a></button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Importar Planilha Excel</h1>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="themeToggle">
+                    <span class="slider round"></span>
+                </label>
+                <span id="themeLabel">Modo Escuro</span>
+            </div>
+            <div class="upload-section">
+                <input type="file" id="fileInput" accept=".xlsx, .csv" />
+                <label for="fileInput" class="button">Escolher Arquivo</label>
+                <button id="downloadButton" class="button" style="display:none;">Download Planilha com Alterações</button>
+                <button id="saveButton" class="button" style="display:none;">Salvar Planilha</button>
+            </div>
+        </div>
+    </section>
+    <section class="table-section">
+        <div class="table-container">
+            <div class="scroll-wrapper">
+                <table id="excelTable"></table>
+            </div>
+        </div>
+        <h2>Histórico de Planilhas</h2>
+        <ul id="historyList"></ul>
+    </section>
+    <div id="modal" class="modal">
+        <span id="closeModal" class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/xlsx/0.17.0/xlsx.full.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>

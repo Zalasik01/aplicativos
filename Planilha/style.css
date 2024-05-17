@@ -1,0 +1,441 @@
+/* Reset básico */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+
+body {
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    background: #f5f7fa;
+    color: #333;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    min-height: 100vh;
+    margin: 0;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+header {
+    width: 100%;
+    background-color: rgba(255, 255, 255, 0.9);
+    box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    top: 0;
+    z-index: 1000;
+    transition: background-color 0.3s, color 0.3s;
+}
+
+body.dark header {
+    background-color: rgba(51, 51, 51, 0.9);
+}
+
+nav {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    padding: 10px 20px;
+}
+
+nav ul {
+    list-style-type: none;
+    display: flex;
+    align-items: center;
+}
+
+nav ul li {
+    position: relative;
+    margin-right: 20px;
+}
+
+nav ul li:last-child {
+    margin-right: 0;
+}
+
+.dropbtn, .navbtn {
+    background-color: #007bff;
+    color: white;
+    padding: 10px 20px;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+    font-size: 16px;
+}
+
+.dropbtn:hover, .navbtn:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+}
+
+.dropdown-content {
+    display: none;
+    position: absolute;
+    background-color: rgba(255, 255, 255, 0.95);
+    min-width: 160px;
+    box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+    border-radius: 5px;
+    overflow: hidden;
+    top: 100%;
+    left: 0;
+    opacity: 0;
+    transform: translateY(10px);
+    transition: opacity 0.3s, transform 0.3s;
+}
+
+.dropdown:hover .dropdown-content {
+    display: block;
+    opacity: 1;
+    transform: translateY(0);
+}
+
+.dropdown-content .navbtn {
+    width: 100%;
+    text-align: left;
+    padding: 12px 16px;
+    background-color: transparent;
+    color: inherit;
+    border: none;
+    border-radius: 0;
+}
+
+.dropdown-content .navbtn a {
+    color: inherit;
+    text-decoration: none;
+    display: block;
+    transition: background-color 0.3s;
+}
+
+.dropdown-content .navbtn:hover {
+    background-color: #f1f1f1;
+}
+
+/* Hero Section */
+.hero {
+    width: 100%;
+    height: 60vh;
+    background: url('https://source.unsplash.com/1600x900/?spreadsheets') no-repeat center center/cover;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    color: white;
+    text-align: center;
+    padding-top: 70px; /* Add padding to account for fixed header */
+}
+
+.hero-content {
+    max-width: 800px;
+    background: rgba(0, 0, 0, 0.5);
+    padding: 40px;
+    border-radius: 10px;
+    animation: fadeIn 2s ease-in-out;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+h1 {
+    font-size: 3em;
+    margin-bottom: 20px;
+}
+
+.upload-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 20px;
+}
+
+.upload-section input[type="file"] {
+    display: none;
+}
+
+.upload-section label {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.upload-section label:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+.upload-section button {
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s, transform 0.3s;
+}
+
+.upload-section button:hover {
+    background-color: #0056b3;
+    transform: translateY(-2px);
+}
+
+#downloadSection {
+    margin-top: 20px;
+}
+
+.table-section {
+    width: 100%;
+    padding: 40px;
+    text-align: center;
+}
+
+.table-container {
+    margin-top: 20px;
+    max-height: 400px;
+    overflow-y: auto;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    position: relative;
+}
+
+.scroll-wrapper {
+    overflow-x: auto;
+    position: sticky;
+    bottom: 0;
+    background-color: rgba(255, 255, 255, 0.85); /* Background para o tema claro */
+}
+
+body.dark .scroll-wrapper {
+    background-color: rgba(51, 51, 51, 0.85); /* Background para o tema escuro */
+}
+
+body.dark .table-container {
+    border: 1px solid #444;
+}
+
+table {
+    width: 100%;
+    border-collapse: collapse;
+    table-layout: auto; /* Use automatic layout to adjust cell width */
+}
+
+td, th {
+    padding: 12px;
+    border-bottom: 1px solid #ddd;
+    border-right: 1px solid #ddd; /* Add right border to separate cells */
+    white-space: nowrap; /* Prevent text from wrapping */
+    text-align: left;
+}
+
+td:last-child, th:last-child {
+    border-right: none; /* Remove right border for the last cell */
+}
+
+body.dark td, body.dark th {
+    border-bottom: 1px solid #444;
+    border-right: 1px solid #444; /* Add right border to separate cells */
+}
+
+td input {
+    width: 100%;
+    border: none;
+    background: none;
+    padding: 8px;
+    box-sizing: border-box;
+    color: inherit;
+}
+
+td input:focus {
+    outline: none;
+    background-color: #f1f1f1;
+}
+
+body.dark td input:focus {
+    background-color: #555;
+}
+
+th {
+    background-color: transparent;
+    color: inherit;
+    position: sticky;
+    top: 0;
+}
+
+ul {
+    list-style: none;
+    padding: 0;
+    margin: 20px 0;
+}
+
+ul li {
+    padding: 10px;
+    background: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    cursor: pointer;
+    transition: background 0.3s;
+}
+
+ul li:hover {
+    background: #f1f1f1;
+}
+
+body.dark ul li {
+    background: #555;
+    border: 1px solid #444;
+}
+
+body.dark ul li:hover {
+    background: #666;
+}
+
+ul li button {
+    background-color: #ff4d4d;
+    border: none;
+    padding: 5px 10px;
+    border-radius: 5px;
+    color: white;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+ul li button:hover {
+    background-color: #cc0000;
+}
+
+body.dark ul li button {
+    background-color: #ff6666;
+}
+
+body.dark ul li button:hover {
+    background-color: #e60000;
+}
+
+/* Always show horizontal scrollbar */
+.scroll-wrapper::-webkit-scrollbar {
+    height: 12px;
+}
+
+.scroll-wrapper::-webkit-scrollbar-track {
+    background: #f1f1f1;
+}
+
+.scroll-wrapper::-webkit-scrollbar-thumb {
+    background: #888;
+}
+
+.scroll-wrapper::-webkit-scrollbar-thumb:hover {
+    background: #555;
+}
+
+/* Estilo para destacar a linha selecionada */
+.highlighted-row {
+    background-color: #ffff99; /* Cor de destaque */
+}
+
+body.dark .highlighted-row {
+    background-color: #555555; /* Cor de destaque no tema escuro */
+}
+
+/* Responsividade */
+@media (max-width: 768px) {
+    .hero {
+        height: 50vh;
+    }
+
+    h1 {
+        font-size: 2em;
+    }
+
+    p {
+        font-size: 1.2em;
+    }
+
+    .upload-section {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .table-section {
+        padding: 20px;
+    }
+
+    .table-container {
+        max-height: 300px;
+    }
+
+    td, th {
+        padding: 8px;
+    }
+
+    table {
+        table-layout: auto; /* Use automatic layout for smaller screens */
+        width: 100%; /* Ensure table uses full width available */
+    }
+
+    td, th {
+        min-width: 120px; /* Adjust minimum width for smaller screens */
+        word-wrap: break-word; /* Allow text to wrap if necessary */
+    }
+}
+
+@media (max-width: 1300px) {
+    .container {
+        padding: 10px;
+    }
+
+    h1, h2 {
+        font-size: 1.2em;
+    }
+
+    .upload-section label, .upload-section button {
+        padding: 6px 12px;
+        font-size: 0.9em;
+    }
+
+    .table-section {
+        padding: 20px;
+    }
+
+    .table-container {
+        max-height: 200px;
+    }
+
+    td, th {
+        padding: 6px;
+        font-size: 0.9em;
+    }
+
+    table {
+        table-layout: auto; /* Use automatic layout for smaller screens */
+        width: 100%; /* Ensure table uses full width available */
+    }
+
+    td, th {
+        min-width: 100px; /* Adjust minimum width for smaller screens */
+        word-wrap: break-word; /* Allow text to wrap if necessary */
+    }
+
+    .theme-toggle {
+        flex-direction: column;
+    }
+
+    .theme-toggle .switch {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+}

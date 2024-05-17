@@ -1,0 +1,78 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Converter Imagem</title>
+    <link rel="stylesheet" href="style.css">
+    <link rel="icon" href="texto.png" type="image/x-icon">
+</head>
+<body>
+    <header>
+        <nav>
+            <ul>
+                <li class="dropdown">
+                    <button class="dropbtn">Aplicativos</button>
+                    <div class="dropdown-content">
+                        <button class="navbtn"><a href="/index.html">Home - Inicio</a></button>
+                        <button class="navbtn"><a href="/Planilha/index.html">Editar Planilha</a></button>
+                    </div>
+                </li>
+            </ul>
+        </nav>
+    </header>
+    <section class="hero">
+        <div class="hero-content">
+            <h1>Converter Imagem</h1>
+            <div class="theme-toggle">
+                <label class="switch">
+                    <input type="checkbox" id="themeToggle">
+                    <span class="slider round"></span>
+                </label>
+                <span id="themeLabel">Modo Escuro</span>
+            </div>
+            <div class="upload-section">
+                <input type="file" id="imageInput" accept="image/*" />
+                <label for="imageInput" class="button">Escolher Imagem</label>
+                <span id="fileFormat">Nenhum arquivo selecionado</span>
+                <select id="outputFormat" class="button">
+                    <option value="png">PNG</option>
+                    <option value="jpg">JPG</option>
+                    <option value="jpeg">JPEG</option>
+                    <option value="gif">GIF</option>
+                    <option value="bmp">BMP</option>
+                    <option value="tiff">TIFF</option>
+                    <option value="webp">WEBP</option>
+                    <option value="pdf">PDF</option>
+                </select>
+                <select id="resizeOptions" class="button">
+                    <option value="original">Tamanho Original</option>
+                    <option value="16x16">16x16</option>
+                    <option value="32x32">32x32</option>
+                    <option value="64x64">64x64</option>
+                    <option value="128x128">128x128</option>
+                    <option value="256x256">256x256</option>
+                </select>
+                <button id="convertButton" class="button">Converter</button>
+            </div>
+            <div id="downloadSection" style="display:none;">
+                <button id="downloadButton" class="button">Download Imagem Convertida</button>
+            </div>
+        </div>
+    </section>
+    <section class="history-section">
+        <h2>Histórico de Imagens Convertidas</h2>
+        <div id="historyContainer">
+            <ul id="historyList"></ul>
+            <div id="pagination" class="pagination"></div>
+        </div>
+    </section>
+    <div id="modal" class="modal">
+        <span id="closeModal" class="close">&times;</span>
+        <img class="modal-content" id="modalImage">
+        <div id="caption"></div>
+    </div>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/jspdf/2.4.0/jspdf.umd.min.js"></script>
+    <script src="script.js"></script>
+</body>
+</html>
